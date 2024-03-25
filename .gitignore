@@ -6,3 +6,5 @@ test.ipynb
 lstm-rnn-arimax-ar-models-and-analysis.ipynb
 main.ipynb
 TimeSeriesForecasting_LSTMs.ipynb
+ARIMA_MODEL.ipynb
+additional/__pycache__

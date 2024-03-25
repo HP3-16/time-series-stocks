@@ -1,1 +1,1 @@
-# Stock Price Prediction EDA & Visulization
+# Stock Price Prediction
