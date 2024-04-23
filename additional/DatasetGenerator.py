@@ -1,14 +1,19 @@
 import numpy as np
+from sklearn.preprocessing import MinMaxScaler
 
 def Dataset(Data, Date):
 
   Train_Data = Data['Adj Close'][Data['Date'] < Date].to_numpy()
+  
+  scaler = MinMaxScaler(feature_range=(0, 1))
+  Train_Data_scaled = scaler.fit_transform(Train_Data.reshape(-1, 1))
+  
   Data_Train = []
   Data_Train_X = []
   Data_Train_Y = []
-  for i in range(0, len(Train_Data), 5):
+  for i in range(0, len(Train_Data_scaled), 5):
     try:
-      Data_Train.append(Train_Data[i : i + 5])
+      Data_Train.append(Train_Data_scaled[i : i + 5])
     except:
       pass
 
@@ -24,12 +29,14 @@ def Dataset(Data, Date):
 
 
   Test_Data = Data['Adj Close'][Data['Date'] >= Date].to_numpy()
+  Test_Data_scaled = scaler.transform(Test_Data.reshape(-1, 1))
+
   Data_Test = []
   Data_Test_X = []
   Data_Test_Y = []
-  for i in range(0, len(Test_Data), 5):
+  for i in range(0, len(Test_Data_scaled), 5):
     try:
-      Data_Test.append(Test_Data[i : i + 5])
+      Data_Test.append(Test_Data_scaled[i : i + 5])
     except:
       pass
 
@@ -43,4 +50,4 @@ def Dataset(Data, Date):
   Data_Test_Y = np.array(Data_Test_Y)
   Data_Test_Y = Data_Test_Y.reshape((-1, 5, 1))
 
-  return Data_Train_X, Data_Train_Y, Data_Test_X, Data_Test_Y
+  return Data_Train_X, Data_Train_Y, Data_Test_X, Data_Test_Y, scaler.scale_[0]
