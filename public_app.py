@@ -10,7 +10,7 @@ from io import StringIO
 
 st.title("Stock Prediction")
 
-user_input = st.text_input("Enter the Stock Symbol")
+user_input = st.text_input("Enter the Stock Symbol","RELIANCE")
 url = f'https://raw.githubusercontent.com/HP3-16/time-series-stocks/master/equities/{user_input}.csv'
 response = requests.get(url)
 df = pd.read_csv(StringIO(response.text))
@@ -19,7 +19,7 @@ df = pd.read_csv(StringIO(response.text))
 st.subheader('Data till 2024')
 st.write(df.describe())
 
-model = keras.models.load_model('running_save.h5')
+model = keras.models.load_model('modelkeras/saved_model.keras')
 # model= keras.models.load_model("mod")
 # model = keras.layers.TFSMLayer("mod")
 # ed_date = '2023-06-01'
