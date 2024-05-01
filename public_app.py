@@ -5,7 +5,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from additional import DatasetGenerator
 import keras
-from keras.models import load_model
 import requests
 from io import StringIO
 
@@ -21,7 +20,7 @@ st.subheader('Data till 2024')
 st.write(df.describe())
 
 # model=load_model('mod/saved_model.pb')
-model = tf.saved_model.load("mod")
+model = tf.keras.models.load_model("mod")
 # ed_date = '2023-06-01'
 # df["Date"] = pd.to_datetime(df["Date"])
 # df_Train_X, df_Train_Y, df_Test_X, df_Test_Y,scale = DatasetGenerator.Dataset(df, ed_date)
