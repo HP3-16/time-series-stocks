@@ -10,7 +10,7 @@ from io import StringIO
 st.title("Stock Prediction")
 
 user_input = st.text_input("Enter the Stock Symbol")
-url = f'https://raw.githubusercontent.com/HP3-16/time-series-stocks/main/equities/{user_input}.csv'
+url = f'https://raw.githubusercontent.com/HP3-16/time-series-stocks/master/equities/{user_input}.csv'
 response = requests.get(url)
 df = pd.read_csv(StringIO(response.text))
 
