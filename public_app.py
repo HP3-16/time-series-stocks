@@ -7,7 +7,7 @@ from keras.models import load_model
 
 st.title("Stock Prediction")
 
-user_input = st.text_input("Enter the Stock Symbol","Type Here")
+user_input = st.text_input("Enter the Stock Symbol")
 df = pd.read_csv(f'https://raw.githubusercontent.com/HP3-16/time-series-stocks/main/equities/{user_input}.csv')
 
 st.subheader('Data till 2024')
