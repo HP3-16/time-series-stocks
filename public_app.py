@@ -18,7 +18,7 @@ df = pd.read_csv(StringIO(response.text))
 st.subheader('Data till 2024')
 st.write(df.describe())
 
-model = load_model("")
+model = load_model('model.h5')
 ed_date = '2023-06-01'
 df["Date"] = pd.to_datetime(df["Date"])
 df_Train_X, df_Train_Y, df_Test_X, df_Test_Y,scale = DatasetGenerator.Dataset(df, ed_date)
