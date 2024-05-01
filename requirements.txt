@@ -1,5 +1,5 @@
 beautifulsoup4==4.12.3
-keras==2.9.0
+# keras==2.9.0
 streamlit==1.33.0
 matplotlib==3.7.2
 numpy==1.26.4
