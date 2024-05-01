@@ -8,4 +8,3 @@ TimeSeriesForecasting_LSTMs.ipynb
 ARIMA_MODEL.ipynb
 additional/__pycache__
 Deep_Learning_Model.ipynb
-*.h5
