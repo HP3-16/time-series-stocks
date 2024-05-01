@@ -19,7 +19,7 @@ df = pd.read_csv(StringIO(response.text))
 st.subheader('Data till 2024')
 st.write(df.describe())
 
-model = load_model('./model.h5',compile=False)
+model = load_model('model.h5',compile=False)
 # model = TFSMLayer("")
 ed_date = '2023-06-01'
 df["Date"] = pd.to_datetime(df["Date"])
