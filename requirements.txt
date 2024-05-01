@@ -12,4 +12,4 @@ protobuf==3.20.3
 tensorflow
 plotly
 yfinance
-pandas_ta
+pandas-ta
