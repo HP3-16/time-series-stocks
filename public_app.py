@@ -125,21 +125,19 @@ else:
     ax2.set_title('RELATIVE STRENGTH INDEX')
     st.pyplot(fig3)
 
-st.subheader("Prediction of Stocks")
-model = keras.models.load_model('modelkeras/saved_model.keras')
-ed_date = '2023-06-01'
-RELIANCE["Date"] = pd.to_datetime(RELIANCE["Date"])
-RELIANCE_Train_X, RELIANCE_Train_Y, RELIANCE_Test_X, RELIANCE_Test_Y,scale = DatasetGenerator.Dataset(RELIANCE, ed_date)
-
-y_predicted = model.predict(RELIANCE_Test_X)
-
-y_predicted = y_predicted/scale
-RELIANCE_Test_X = RELIANCE_Test_X/scale
-split_date = '2023'
-
 press_here = st.button("Predict")
 if press_here:
-    st.subheader("Prediction vs Original")
+    st.subheader("Prediction of Stocks")
+    model = keras.models.load_model('modelkeras/saved_model.keras')
+    ed_date = '2023-06-01'
+    RELIANCE["Date"] = pd.to_datetime(RELIANCE["Date"])
+    RELIANCE_Train_X, RELIANCE_Train_Y, RELIANCE_Test_X, RELIANCE_Test_Y,scale = DatasetGenerator.Dataset(RELIANCE, ed_date)
+    
+    y_predicted = model.predict(RELIANCE_Test_X)
+    
+    y_predicted = y_predicted/scale
+    RELIANCE_Test_X = RELIANCE_Test_X/scale
+    split_date = '2023'
     fig = plt.figure(figsize=(20,12))
     plt.plot(RELIANCE['Date'][RELIANCE['Date'] < '2023-06-01'], RELIANCE['Adj Close'][RELIANCE['Date'] < '2023-06-01'], label = 'Training')
     plt.plot(RELIANCE['Date'][RELIANCE['Date'] >= '2023-06-01'], RELIANCE['Adj Close'][RELIANCE['Date'] >= '2023-06-01'], label = 'Testing')
