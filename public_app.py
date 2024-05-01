@@ -19,8 +19,8 @@ df = pd.read_csv(StringIO(response.text))
 st.subheader('Data till 2024')
 st.write(df.describe())
 
-# model = load_model("")
-model = TFSMLayer("model.h5")
+model = load_model("https://github.com/HP3-16/time-series-stocks/blob/master/model.h5")
+# model = TFSMLayer("")
 ed_date = '2023-06-01'
 df["Date"] = pd.to_datetime(df["Date"])
 df_Train_X, df_Train_Y, df_Test_X, df_Test_Y,scale = DatasetGenerator.Dataset(df, ed_date)
