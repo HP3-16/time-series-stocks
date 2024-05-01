@@ -1,6 +1,6 @@
 beautifulsoup4==4.12.3
 streamlit==1.33.0
-matplotlib==3.7.2
+matplotlib
 numpy==1.26.4
 pandas==2.0.3
 Requests==2.31.0
