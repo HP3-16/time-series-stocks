@@ -19,7 +19,7 @@ df = pd.read_csv(StringIO(response.text))
 st.subheader('Data till 2024')
 st.write(df.describe())
 
-model = keras.models.load_model('models')
+model = keras.models.load_model('models/saved_model.h5')
 # model= keras.models.load_model("mod")
 # model = keras.layers.TFSMLayer("mod")
 # ed_date = '2023-06-01'
