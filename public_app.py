@@ -4,11 +4,16 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from additional import DatasetGenerator
 from keras.models import load_model
+import requests
+from io import StringIO
 
 st.title("Stock Prediction")
 
 user_input = st.text_input("Enter the Stock Symbol")
-df = pd.read_csv(f'https://raw.githubusercontent.com/HP3-16/time-series-stocks/main/equities/{user_input}.csv')
+url = f'https://raw.githubusercontent.com/HP3-16/time-series-stocks/main/equities/{user_input}.csv'
+response = requests.get(url)
+df = pd.read_csv(StringIO(response.text))
+
 
 st.subheader('Data till 2024')
 st.write(df.describe())
